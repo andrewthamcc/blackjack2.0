@@ -1,0 +1,143 @@
+.card-table {
+  height: 100vh;
+  padding: 2rem;
+  background-color: rgb(15, 72, 10);
+
+  position: relative;
+}
+
+.dealer {
+  height: calc(50vh - 2rem);
+
+  &-flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-cards-starting {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-cards-hit {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    height: 8rem;
+  }
+}
+
+.player {
+  height: calc(50vh - 2rem);
+
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+
+  &-flex-container {
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-cards-starting {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-controls {
+    display: flex;
+    justify-content: center;
+
+    .button {
+      margin: 1rem 0.5rem 0;
+      width: 5rem;
+    }
+  }
+
+  &-cards-hit {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    height: 8rem;
+  }
+}
+
+.card-image {
+  height: 8rem;
+  margin: 0 0.5rem;
+}
+
+// card flip animation
+.card-flip {
+  height: auto;
+  perspective: 1000px;
+
+  &-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+  }
+
+  // rotation directions for cards
+  &-forward.rotate {
+      transform: rotateY(180deg);
+  }
+
+  &-reverse.rotate {
+    transform: rotateY(-180deg);
+  }
+
+  &-front,
+  &-back {
+    width: 100%;
+    top: 0;
+    height: 100%;
+    backface-visibility: hidden;
+  }  
+
+  &-back {
+    position: absolute;
+    transform: rotateY(180deg);
+  }
+}
+
+.game-status {
+  display: none;
+  position: absolute;
+  top: calc(50% - 5rem);
+  left: calc(50% - 25rem);
+  width: 50rem;
+  z-index: 999;
+
+  font-size: 5.5rem;
+  font-weight: 700;
+  letter-spacing: 6px;
+  font-weight: 700;
+  color: #090909;
+  text-shadow: 3px 3px white;
+  text-align: center;
+
+  &.show {
+    display: block;
+  }
+}
+
+.count-output{
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+  color: #fafafa;
+}
+
+.button {
+  &.deal,
+  &.hit,
+  &.stand {
+    width: 8rem;
+  }
+}

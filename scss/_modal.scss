@@ -1,0 +1,40 @@
+.header-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  &-text {
+    background-color: #151C57;
+    color: #fafafa;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    
+    width: 80%;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    margin: 5% auto;
+    padding: 2rem 0;
+  }
+
+  &-button {
+    margin-top: 2rem;
+  }
+
+  &.visible {
+    display: block;
+  }
+}
+
+.header-instructions-list {
+  padding: 10px;
+
+  &-item {
+    margin: 15px auto;
+  }
+}

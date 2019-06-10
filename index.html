@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>BlackJack</title>
+</head>
+<body>
+  <!-- header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="header-title">Blackjack</h1>
+
+      <div class="header-about">
+        <button class="header-instructions button">Instructions</button>
+        <button class="header-play button">Play</button>
+
+        <!-- modal for name -->
+        <div class="header-modal animated fadeIn">
+          <div class="header-modal-text container">
+            <div class="header-modal-message">
+              <h2 class="header-modal-title">Blackjack Rules</h2>
+              <ul class="header-instructions-list">
+                <li class="header-instructions-list-item">The attempt is to beat the dealer by having a count of 21, or as close to 21, without exceeding 21</li>
+                <li class="header-instructions-list-item">Cards are valued their pip value</li>
+                <li class="header-instructions-list-item">Face cards are valued at 10</li>
+                <li class="header-instructions-list-item">Aces are valued at either 1 or 11</li>
+                <li class="header-instructions-list-item">The dealer will always stand if they have a count of 17 or higher</li>
+                <li class="header-instructions-list-item">If neither player or dealer has 21 whoever holds the higher hand wins</li>
+                <li class="header-instructions-list-item">Either player or dealer exceeding a value of 21 loses the hand</li>
+              </ul>
+            </div>
+            <button class="header-modal-button button">CLOSE</button>
+          </div>
+        </div>
+        <!-- modals ends -->
+      </div>
+
+    </div>
+  </header>
+
+  <section class="card-table">
+    <div class="container">
+
+      <!-- dealer section -->
+      <div class="dealer">
+        <div class="dealer-flex-container">
+
+          <!-- dealer starting cards -->
+          <div class="dealer-cards-starting">
+            <div class="dealer-card-one card-flip">
+              <div class="dealer-one card-flip-container card-flip-reverse">
+                <div class="card-flip-front">
+                  <img src="./assets/facedown.png" class="card-image" alt="red card face down">
+                </div>
+
+                <!-- empty div that an image is dynamically injected into -->
+                <div class="card-flip-back dealer-card-one-hidden"></div>
+              </div><!-- card flip container ends -->
+            </div>
+
+            <div class="dealer-card-two card-flip">
+              <div class="dealer-two card-flip-container card-flip-reverse">
+                <div class="card-flip-front">
+                  <img src="./assets/facedown.png" class="card-image" alt="red card face down">
+                </div>
+
+                <!-- empty div that an image is dynamically injected into -->
+                <div class="card-flip-back dealer-card-two-hidden"></div>
+              </div><!-- card flip container ends -->
+            </div>
+
+          </div>
+  
+          <!-- dealer count -->
+          <p class="count-output">Dealer Shows: <span class="dealer-count">0</span></p>
+        </div><!-- flex container ends-->
+
+        <div class="dealer-cards-hit"></div>
+      </div>
+      <!-- dealer section ends -->
+
+      <div class="game-status animated flipInX"></div>
+      
+      <!-- player section -->
+      <div class="player">
+        <div class="player-cards-hit"></div>
+
+        <div class="player-flex-container">
+
+          <!-- player starting cards -->
+          <div class="player-cards-starting">
+            <div class="player-card-one card-flip">
+              <div class="player-one card-flip-container card-flip-forward">
+                <div class="card-flip-front">
+                  <img src="./assets/facedown.png" class="card-image" alt="red card face down">
+                </div>
+
+                <!-- empty div that an image is dynamically injected into -->
+                <div class="card-flip-back player-card-one-hidden"></div>
+              </div><!-- card flip container ends -->
+            </div>
+
+            <div class="player-card-two card-flip">
+              <div class="player-two card-flip-container card-flip-forward">
+                <div class="card-flip-front">
+                  <img src="./assets/facedown.png" class="card-image" alt="red card face down">
+                </div>
+
+                <!-- empty div that an image is dynamically injected into -->
+                <div class="card-flip-back player-card-two-hidden"></div>
+              </div><!-- card flip container ends -->
+            </div>
+          </div><!-- flex container ends -->
+          
+          <p class="count-output">Count: <span class="player-count">0</span></p>
+
+        <div class="player-controls">
+          <button class="deal button">Deal</button>
+          <button class="hit button">Hit</button>
+          <button class="stand button">Stand</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="footer">
+    <p>&copy; 2019 Andrew Tham</p>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
