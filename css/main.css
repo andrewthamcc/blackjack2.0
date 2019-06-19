@@ -500,8 +500,8 @@ img {
   font-weight: 700;
   letter-spacing: 6px;
   font-weight: 700;
-  color: #fafafa;
-  text-shadow: 3px 3px black;
+  color: black;
+  text-shadow: 1px 1px #fcfcfc;
   text-align: center;
 }
 
