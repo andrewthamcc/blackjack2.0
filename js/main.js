@@ -216,6 +216,10 @@ app.evaluateCards = function(cards) {
 
 // draws a card from the deck
 app.hitCards = function() {
+  // disable the game play buttons
+  document.querySelector('.hit').setAttribute('disabled', true);
+  document.querySelector('.stand').setAttribute('disabled', true);
+
   // call the API for the hit card
   app.hit(app.deckID).then(response => {
     // get the value and image of the hit card
@@ -244,9 +248,15 @@ app.hitCards = function() {
 
     // update the UI with the players new count
     app.playerCountUI.innerHTML = app.playerCount;
-
+   
     // check if player busts or has a app
     app.blackjackBust(app.playerCount, drawCard);
+
+    setTimeout(() => {
+      // disable game play buttons
+      document.querySelector('.hit').removeAttribute('disabled');
+      document.querySelector('.stand').removeAttribute('disabled');
+    }, 500)
   });
 };
 
@@ -395,14 +405,14 @@ app.reduceCards = function(cards) {
 // checks to see if the users cards have a app or bust value
 app.blackjackBust = function(cards) {
   if (cards.length >= 2) {
-    //loop over the hand and check for a natural app
+    //loop over the hand and check for a natural blackjack
     cards.forEach(value => {
       if (value === 21) {
         app.endGameMessage('BLACKJACK');
       }
     });
 
-    // check to see if the user holds a black jack from their cards
+    // check to see if the user holds a blackjack from their cards
   } else if (cards.length === 1) {
     if (cards[0] === 21) {
       app.endGameMessage('BLACKJACK');
@@ -416,9 +426,9 @@ app.endGameMessage = function(message) {
   app.gameMessage.innerHTML = message;
   app.gameMessage.classList.add('show');
 
-  // disable game play buttons
-  document.querySelector('.hit').setAttribute('disabled', true);
-  document.querySelector('.stand').setAttribute('disabled', true);
+  // // disable game play buttons
+  // document.querySelector('.hit').removeAttribute('disabled');
+  // document.querySelector('.stand').removeAttribute('disabled');
 
   // shuffle the deck
   app.shuffle();
